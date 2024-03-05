@@ -40,7 +40,7 @@ jobs:
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
       - name: Install Helm
-        uses: azure/setup-helm@v4.1.0
+        uses: azure/setup-helm@v4.0.0
 
       - name: Deploy with Helm
         run: |       
