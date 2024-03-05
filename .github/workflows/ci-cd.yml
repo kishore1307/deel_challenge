@@ -39,6 +39,9 @@ jobs:
         with:
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
+      - name: List nodes
+        run: kubectl get nodes
+        
       - name: Install Helm
         uses: azure/setup-helm@v4
 
