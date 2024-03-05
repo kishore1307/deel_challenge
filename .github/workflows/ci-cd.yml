@@ -40,7 +40,9 @@ jobs:
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
       - name: List nodes
-        run: kubectl get nodes
+        run: |
+          aws eks --region us-east-1 update-kubeconfig --name deel-demo
+          kubectl get nodes
         
       - name: Install Helm
         uses: azure/setup-helm@v4
