@@ -40,11 +40,9 @@ jobs:
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
       - name: Install Helm
-        uses: azure/setup-helm@v1
+        uses: azure/setup-helm@v4.1.0
 
       - name: Deploy with Helm
-        run: |
-          helm init
-          helm repo add stable https://charts.helm.sh/stable          
+        run: |       
           helm repo update
           helm upgrade --install reverse-ip charts/reverse-ip --set image.repository=kishore363/flask-reverse-ip --set image.tag=latest
