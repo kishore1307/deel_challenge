@@ -43,4 +43,6 @@ jobs:
         uses: azure/setup-helm@v1
 
       - name: Deploy with Helm
-        run: helm upgrade --install reverse-ip charts/reverse-ip --set image.repository=kishore363/flask-reverse-ip --set image.tag=latest
+        run: |
+          helm repo update
+          helm upgrade --install reverse-ip charts/reverse-ip --set image.repository=kishore363/flask-reverse-ip --set image.tag=latest
