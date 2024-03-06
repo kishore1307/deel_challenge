@@ -41,7 +41,7 @@ jobs:
 
       - name: List nodes
         run: |
-          aws eks --region us-east-1 update-kubeconfig --name deel-demo
+          aws eks --region us-east-1 update-kubeconfig --name test-k-cluster
           kubectl get nodes
         
       - name: Install Helm
