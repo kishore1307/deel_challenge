@@ -47,13 +47,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v4
         
-      - name: Deploy
-        uses: WyriHaximus/github-action-helm3@v3
-        with:
-          exec: |
-            helm dependency build ./helm 
-            helm upgrade reverse-ip ./helm --install --wait --atomic --namespace=apps --values=./helm/values.yaml --set image.tag=${{ github.sha }}
-            
+    
       - name: Deploy with Helm
         run: |       
-          helm upgrade --install reverse-ip charts/reverse-ip --set image.repository=kishore363/flask-reverse-ip --set image.tag=latest
+          helm upgrade --install my-release ./path/to/chart
